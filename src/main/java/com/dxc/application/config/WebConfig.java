@@ -16,8 +16,6 @@ import java.util.Locale;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "com.dxc.application",
-               includeFilters = @ComponentScan.Filter(type = FilterType.REGEX, pattern="com.dxc.application.*.*Controller"))
 public class WebConfig extends WebMvcConfigurerAdapter implements ApplicationContextAware {
     private ApplicationContext applicationContext;
 

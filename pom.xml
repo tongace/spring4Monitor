@@ -50,7 +50,11 @@
             <artifactId>spring-webmvc</artifactId>
             <version>${spring-framework.version}</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${spring-framework.version}</version>
+        </dependency>
         <!-- Test Artifacts -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -144,11 +148,17 @@
             <artifactId>jackson-mapper-asl</artifactId>
             <version>1.9.13</version>
         </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.2</version>
+        </dependency>
+
     </dependencies>
 
     <build>
-        <!--<finalName>${project.artifactId}</finalName>-->
-        <!--<resources>
+        <finalName>${project.artifactId}</finalName>
+        <resources>
             <resource>
                 <directory>src/main/java</directory>
                 <filtering>false</filtering>
@@ -157,7 +167,7 @@
                 <directory>src/main/resources</directory>
                 <filtering>false</filtering>
             </resource>
-        </resources>-->
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -181,7 +191,8 @@
                 <artifactId>jetty-maven-plugin</artifactId>
                 <version>8.1.16.v20140903</version>
                 <configuration>
-                    <scanIntervalSeconds>10</scanIntervalSeconds>
+                    <reload>automatic</reload>
+                    <scanIntervalSeconds>1</scanIntervalSeconds>
                     <webApp>
                         <contextPath>/demo</contextPath>
                     </webApp>
